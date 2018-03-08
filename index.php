@@ -1,18 +1,13 @@
 <?php
 
-require_once('./files/globals.php');
-
-require_once('./files/routes/routes.php');
-
 #autoload postojecih klasa
 function __autoload($ime_klase)
 {
-    require_once './files/classes/'.$ime_klase.'.php';
-    echo "<p>Ime klase: ".$ime_klase."</p>".PHP_EOL;
+    include_once './files/classes/'.$ime_klase.'.php';
 }
-
-$ruta = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-
-echo 'Ruta: '. $ruta;
+$klasa= new klasa1();
+echo $klasa->funkcija1();
+$klasa2= new klasa2();
+echo $klasa2->funkcija2();
 
 ?>

@@ -1,58 +1,70 @@
 <?php
 
-echo '<h1>Unesite url parametar za testiranje.</h1>';
+echo '<center><h1>Unesite url parametre.</h1>';
 
-#autoload postojecih klasa
+#pokretanjem skripte automatski ucitava navedene datoteke
 function __autoload($ime_klase)
 {
-    include_once './files/classes/'.$ime_klase.'.php';
+    #iz foldera classes se ucitavaju svi .php fajlovi
+    include './files/classes/'.$ime_klase.'.php';
 }
+
 $klasa1= new klasa1();
 $klasa2= new klasa2();
 
-if (isset($_GET['klasa']) && isset($_GET['funkcija']))
+#if petlja provjerava jesu li uneseni url parametri "klasa" i "funkcija"
+if (isset($_GET["klasa"]) && isset($_GET["funkcija"]))
 {
-    $ime_klase=$_GET['klasa'];
-    $ime_funkcije=$_GET['funkcija'];
-    if (isset($ime_klase))
-    {
-        switch($ime_klase)
+    
+    $classname=$_GET["klasa"];
+    $funcname=$_GET["funkcija"];
+    
+        switch($classname)
         {
             case 'klasa1':
-                if(strcmp($ime_funkcije, 'prvaFunkcija')==0)
-                {
-                    $klasa1->prvaFunkcija();
+            
+                if(strcmp($funcname, 'PrvaFunkcija')==0) #ako je vrijednost varijable $funcname jednaka upisanom stringu
+                {                                        #poziva se upisana funkcija, ==0 oznacava da stringovi moraju biti identicni
+                    $klasa1->PrvaFunkcija();
                 }
-                elseif(strcmp($ime_funkcije, 'drugaFunkcija')==0)
+                elseif(strcmp($funcname, 'DrugaFunkcija')==0)
                 {
-                    $klasa1->drugaFunkcija();
+                    $klasa1->DrugaFunkcija();
                 }
                 else
                 {
                     echo 'Krivo ime funkcije.';
                 }
                 break;
+
             case 'klasa2':
-                if(strcmp($ime_funkcije, 'funkcija1')==0)
+
+                if(strcmp($funcname, 'funkcija1')==0)
                 {
-                    $klasa1->funkcija1();
+                    $klasa2->funkcija1();
                 }
-                elseif(strcmp($ime_funkcije, 'funkcija2')==0)
+                elseif(strcmp($funcname, 'funkcija2')==0)
                 {
-                    $klasa1->funkcija2();
+                    $klasa2->funkcija2();
                 }
                 else
                 {
                     echo 'Krivo ime funkcije.';
                 }
-                break;    
+                break; 
+            default:
+                echo 'Krivo ime klase';
+                break;
         }
-    }
+    
 
 }
 else
 {
-    echo 'Unesite ime klase i ime funkcije.';
+    echo '<p>Unesite ime klase i ime funkcije ( ?klasa=ImeKlase&funkcija=ImeFunkcije )</p>';
+    echo '<p>Postojece klase su: <ul><li>klasa1</li><li>klasa2</li></ul>';
+    echo '<p>Funkcije u klasi1 su: <ul><li>PrvaFunkcija</li><li>DrugaFunkcija</li></ul>';
+    echo '<p>Funkcije u klasi2 su: <ul><li>funkcija1</li><li>funkcija2</li></ul>';
 }
 
 

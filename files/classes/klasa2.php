@@ -1,10 +1,11 @@
 <?php
 class klasa2{
-
+    #konstruktor klase2
     public function __construct()
     {
 
     }
+    #funkcija1 ispisuje ime klase u kojoj se nalazi, svoje ime, te url 
     public function funkcija1()
     {
         echo "<p>Ime klase: ".__CLASS__."</p>".PHP_EOL;
@@ -12,7 +13,9 @@ class klasa2{
 
         echo '<p>Ruta: '. $ruta.'</p>'.PHP_EOL;
         echo 'Funkcija: '.__FUNCTION__;
+        echo '<h3>FUN1</h3>';
     }
+    #funkcija ispisuje ime klase u kojoj se nalazi, svoje ime, te url 
     public function funkcija2()
     {
         echo "<p>Ime klase: ".__CLASS__."</p>".PHP_EOL;
@@ -20,6 +23,7 @@ class klasa2{
 
         echo '<p>Ruta: '. $ruta.'</p>'.PHP_EOL;
         echo 'Funkcija: '.__FUNCTION__;
+        echo '<h3>FUN2</h3>';
     }
     }
 

@@ -1,26 +1,30 @@
 <?php
 class klasa1{
-
+    #konstruktor klase1
     public function __construct()
     {
 
     }
-    
-    public function prvaFunkcija()
+
+    #funkcija ispisuje ime klase u kojoj se nalazi, vlastito ime, te url 
+    public function PrvaFunkcija()
     {
         echo "<p>Ime klase: ".__CLASS__."</p>".PHP_EOL;
         $ruta = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
         echo '<p>Ruta: '. $ruta.'</p>'.PHP_EOL;
         echo 'Funkcija: '.__FUNCTION__;
+        echo '<h3>PRVA</h3>';
     }
-    public function drugaFunkcija()
+    public function DrugaFunkcija()
     {
         echo "<p>Ime klase: ".__CLASS__."</p>".PHP_EOL;
         $ruta = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
         echo '<p>Ruta: '. $ruta.'</p>'.PHP_EOL;
         echo 'Funkcija: '.__FUNCTION__;
+
+        echo '<h3>DRUGA</h3>';
     }
     }
 

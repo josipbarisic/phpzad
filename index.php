@@ -62,9 +62,9 @@ if (isset($_GET["klasa"]) && isset($_GET["funkcija"]))
 else
 {
     echo '<p>Unesite ime klase i ime funkcije ( ?klasa=ImeKlase&funkcija=ImeFunkcije )</p>';
-    echo '<p>Postojece klase su: <ul><li>klasa1</li><li>klasa2</li></ul>';
-    echo '<p>Funkcije u klasi1 su: <ul><li>PrvaFunkcija</li><li>DrugaFunkcija</li></ul>';
-    echo '<p>Funkcije u klasi2 su: <ul><li>funkcija1</li><li>funkcija2</li></ul>';
+    echo '<p>Postojece klase su: <ul style="list-style-type:none"><li>klasa1</li><li>klasa2</li>';
+    echo '<p>Funkcije u klasi1 su: <li>PrvaFunkcija</li><li>DrugaFunkcija</li>';
+    echo '<p>Funkcije u klasi2 su: <li>funkcija1</li><li>funkcija2</li></ul>';
 }
 
 
